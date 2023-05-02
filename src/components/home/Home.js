@@ -5,10 +5,10 @@ import RoomList from "./RoomList";
 import io from "socket.io-client";
 let socket;
 const Home = () => {
-    const { user } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
     const [room, setRoom] = useState("");
     const [rooms, setRooms] = useState([]);
-    const ENDPT = process.env.REACT_APP_ENDPNT;
+    const ENDPT = "ting-chat-app-backend.vercel.app";
     useEffect(() => {
         socket = io(ENDPT);
         return () => {
@@ -27,7 +27,7 @@ const Home = () => {
         });
     }, [rooms]);
     useEffect(() => {
-        // console.log(rooms);
+        console.log(rooms);
     }, [rooms]);
 
     const handleSubmit = (e) => {

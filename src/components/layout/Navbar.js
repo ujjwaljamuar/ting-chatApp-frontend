@@ -8,7 +8,6 @@ const Navbar = () => {
     const logout = async () => {
         try {
             const res = await fetch(process.env.REACT_APP_API_URL + "/logout", {
-                mode: 'no-cors',
                 credentials: "include",
             });
             const data = res.json();
@@ -27,7 +26,6 @@ const Navbar = () => {
                         Chat
                     </a>
                     <a
-                        // to leavve the href empty without warnings
                         href="#"
                         data-target="mobile-demo"
                         className="sidenav-trigger"

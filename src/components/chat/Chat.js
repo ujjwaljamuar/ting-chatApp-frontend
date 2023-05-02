@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../UserContext";
-import {  useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import io from "socket.io-client";
 import Messages from "./messages/Messages";
 import Input from "./input/Input";
 import "./Chat.css";
 let socket;
 const Chat = () => {
-    const ENDPT = process.env.REACT_APP_ENDPNT;
+    const ENDPT = "ting-chat-app-backend.vercel.app";
 
-    const { user } = useContext(UserContext);
-    let { room_id } = useParams();
+    const { user, setUser } = useContext(UserContext);
+    let { room_id, room_name } = useParams();
     const [message, setMessage] = useState("");
     const [messages, setMessages] = useState([]);
     useEffect(() => {

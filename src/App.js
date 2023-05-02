@@ -12,11 +12,13 @@ function App() {
     useEffect(() => {
         const verifyUser = async () => {
             try {
-                const res = await fetch(process.env.REACT_APP_API_URL + "/verifyuser", {
-                    mode: 'no-cors',
-                    credentials: "include",
-                    headers: { "Content-Type": "application/json" },
-                });
+                const res = await fetch(
+                    process.env.REACT_APP_API_URL + "/verifyuser",
+                    {
+                        credentials: "include",
+                        headers: { "Content-Type": "application/json" },
+                    }
+                );
                 const data = await res.json();
                 setUser(data);
             } catch (error) {

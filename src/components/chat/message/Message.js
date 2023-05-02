@@ -22,7 +22,6 @@ const Message = ({ message: { name, user_id, text }, current_uid }) => {
                     {name}: {text}
                 </p>
             </div>
-            zzz
         </div>
     );
 };

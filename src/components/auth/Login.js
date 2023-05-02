@@ -1,38 +1,33 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../../UserContext";
 import { Redirect } from "react-router-dom";
-
-
 const Login = () => {
     const { user, setUser } = useContext(UserContext);
 
-    // const [name, setName] = useState("");
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const [nameError, setNameError] = useState("");
+    const [nameError, setNameError] = useState("");
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
-    //console.log(process.env.REACT_APP_API_URL);
     const submitHandler = async (e) => {
         e.preventDefault();
         setEmailError("");
-        // setNameError("");
+        setNameError("");
         setPasswordError("");
-        // console.log(name, email, password);
-
+        console.log(name, email, password);
         try {
             const res = await fetch(process.env.REACT_APP_API_URL + "/login", {
-              
                 method: "POST",
                 credentials: "include",
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ name, email, password }),
                 headers: { "Content-Type": "application/json" },
             });
             const data = await res.json();
-            //console.log(data);
+            console.log(data);
             if (data.errors) {
                 setEmailError(data.errors.email);
-                // setNameError(data.errors.name);
+                setNameError(data.errors.name);
                 setPasswordError(data.errors.password);
             }
             if (data.user) {
