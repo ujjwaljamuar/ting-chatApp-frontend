@@ -8,7 +8,7 @@ const Home = () => {
     const { user, setUser } = useContext(UserContext);
     const [room, setRoom] = useState("");
     const [rooms, setRooms] = useState([]);
-    const ENDPT = "ting-chat-app-backend.vercel.app";
+    const ENDPT = "ting-chat-app-backend.vercel.app:"+ process.env.REACT_APP_PORT;
     useEffect(() => {
         socket = io(ENDPT);
         return () => {
