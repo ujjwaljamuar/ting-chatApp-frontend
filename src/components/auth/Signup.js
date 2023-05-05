@@ -17,7 +17,7 @@ const Signup = () => {
         setPasswordError("");
         console.log(name, email, password);
         try {
-            const res = await fetch(process.env.REACT_APP_API_URL + '/signup', {
+            const res = await fetch(process.env.REACT_APP_API_URL + "signup", {
                 method: "POST",
                 credentials: "include",
                 body: JSON.stringify({ name, email, password }),
