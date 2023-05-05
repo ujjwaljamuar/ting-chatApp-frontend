@@ -3,7 +3,7 @@ import React from "react";
 const SignedInMenu = ({ logout }) => {
     return (
         <li onClick={logout}>
-            <a href="#">Logout</a>
+            <a href="/login">Logout</a>
         </li>
     );
 };
