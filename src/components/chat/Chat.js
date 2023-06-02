@@ -7,7 +7,7 @@ import Input from "./input/Input";
 import "./Chat.css";
 let socket;
 const Chat = () => {
-    const ENDPT = "ting-chat-app-backend.vercel.app"+ process.env.REACT_APP_PORT;
+    const ENDPT = "localhost:5000";
 
     const { user, setUser } = useContext(UserContext);
     let { room_id, room_name } = useParams();
